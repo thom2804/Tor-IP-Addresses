@@ -8,7 +8,6 @@ jobs:
     - name: Fork Sync2
       uses: zwping/fork-sync@v1.6.5
       with:
-        owner: thom2804
-        token: ${{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}}
-        base: Tor-IP-Addresses
-        head: Tor-IP-Addresses
+        owner: $thom2804
+        base: $Tor-IP-Addresses
+        head: $Tor-IP-Addresses
