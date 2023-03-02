@@ -5,12 +5,5 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - name: Fork Sync2
-        # You may pin to the exact commit or the version.
-        # uses: zwping/fork-sync@7ad9681518d04008cc8f056abed8fefc2902e96d
-        uses: zwping/fork-sync@v1.6.5
-        with:
-          owner: thom2804
-          token: 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
-          base: master
-          head: master 
+    - name: Fork Sync2
+      uses: zwping/fork-sync@v1.6.5
