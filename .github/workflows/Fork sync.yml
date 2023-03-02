@@ -1,15 +1,11 @@
-name: GitHub Actions Demo
+name: Fork sync
 run-name: ${{ github.actor }}
 on: [push]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - name: Fork Sync
+      - name: Fork Sync2
         # You may pin to the exact commit or the version.
-        # uses: tgymnich/fork-sync@0cc6ac48fd51415e7c34e5b8823021bc952a5f5f
-        uses: tgymnich/fork-sync@v1.2.1
-        with:
-          # Owner of the forked repository
-          owner: thom2804
-          # Branch to track
+        # uses: zwping/fork-sync@7ad9681518d04008cc8f056abed8fefc2902e96d
+        uses: zwping/fork-sync@v1.6.5
