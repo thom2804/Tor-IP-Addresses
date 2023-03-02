@@ -9,6 +9,6 @@ jobs:
       uses: zwping/fork-sync@v1.6.5
       with:
         owner: thom2804
-        token: ${{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}}
+        token: ${{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}}
         base: Tor-IP-Addresses
         head: Tor-IP-Addresses
