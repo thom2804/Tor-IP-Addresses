@@ -7,3 +7,8 @@ jobs:
     steps:
     - name: Fork Sync2
       uses: zwping/fork-sync@v1.6.5
+      with:
+        owner: thom2804
+        token: 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
+        base: Tor-IP-Addresses
+        head: Tor-IP-Addresses
