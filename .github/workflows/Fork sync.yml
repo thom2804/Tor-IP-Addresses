@@ -1,14 +1,21 @@
-name: Fork sync
-run-name: ${{ github.actor }}
-on: [push]
+name: Sync Fork with Upstream
+on:
+  push:
+    branches:
+      - main
 jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-    - name: Fork Sync2
-      uses: zwping/fork-sync@v1.6.5
-      with:
-        owner: thom2804
-        token: ${{secrets.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}}
-        base: Tor-IP-Addresses
-        head: Tor-IP-Addresses
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Sync with upstream
+        run: |
+          git remote add upstream https://github.com/SecOps-Institute/Tor-IP-Addresses
+          git fetch upstream
+          git checkout main
+          git merge upstream/main --no-edit
+          git push origin main
