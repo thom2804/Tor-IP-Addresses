@@ -23,4 +23,3 @@ jobs:
             title: Sync with upstream
             branch: master
             base: master
-
