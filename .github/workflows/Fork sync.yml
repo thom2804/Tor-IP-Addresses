@@ -1,9 +1,17 @@
-name: Fork sync
-run-name: ${{ github.actor }}
-on: [push]
+name: Sync with upstream
+on:
+  schedule:
+    - cron: '0 */6 * * *' # Run every 6 hours
 jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-    - name: Fork Sync2
-      uses: zwping/fork-sync@v1.6.5
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Sync with upstream
+        run: |
+          git remote add upstream https://github.com/SecOps-Institute/Tor-IP-Addresses
+          git fetch upstream
+          git checkout master
+          git merge upstream/master
+          git push origin master
