@@ -1,25 +1,14 @@
-name: Sync with upstream
-on:
-  schedule:
-    - cron: '0 */6 * * *' # Run every 6 hours
+name: Fork sync
+run-name: ${{ github.actor }}
+on: [push]
 jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Sync with upstream
-        run: |
-          git remote add upstream https://github.com/SecOps-Institute/Tor-IP-Addresses
-          git fetch upstream
-          git checkout master
-          git merge upstream/master
-          git push origin master
-      - name: Create or merge pull request
-        uses: peter-evans/create-pull-request@v3.10.0
-        with:
-            token: ${{ secrets.PAT_TOKEN }} # Use the PAT token secret instead of the default GITHUB_TOKEN
-            commit-message: Sync with upstream
-            title: Sync with upstream
-            branch: master
-            base: master
+    - name: Fork Sync2
+      uses: zwping/fork-sync@v1.6.5
+      with:
+        owner: thom2804
+        token: ${{github.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}}
+        base: Tor-IP-Addresses
+        head: Tor-IP-Addresses
