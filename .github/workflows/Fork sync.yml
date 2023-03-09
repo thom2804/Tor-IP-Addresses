@@ -15,3 +15,12 @@ jobs:
           git checkout master
           git merge upstream/master
           git push origin master
+      - name: Create or merge pull request
+        uses: peter-evans/create-pull-request@v3.10.0
+        with:
+            token: ${{ secrets.PAT_TOKEN }} # Use the PAT token secret instead of the default GITHUB_TOKEN
+            commit-message: Sync with upstream
+            title: Sync with upstream
+            branch: master
+            base: master
+
